@@ -2,7 +2,7 @@
 /**
  * multiple tile layers
  */
-
+console.log(123)
 // magnification with which the map will start
 const zoom = 9;
 // co-ordinates

@@ -54,7 +54,15 @@ const map = L.map("map", config).setView([lat, lng], zoom);
 // style.textContent = `.leaflet-tile-container { filter:saturate(2) hue-rotate(5deg) brightness(0.5);}`;
 // document.head.appendChild(style);
 
-
+var greenIcon = new L.Icon({
+  // iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  iconUrl:'IoTLogo-forMirror.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [40, 40],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 
 map
@@ -67,7 +75,7 @@ map
   .on("locationfound", (e) => {
     console.log(e);
     // marker
-    const marker = L.marker([e.latitude, e.longitude]).bindPopup(
+    const marker = L.marker([e.latitude, e.longitude], {icon: greenIcon}).bindPopup(
       "Your are here :)"
     );
     // circle
@@ -87,3 +95,8 @@ map
     console.log(e);
     alert("Location access denied.");
   });
+
+
+
+
+// L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
